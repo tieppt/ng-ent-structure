@@ -1,0 +1,15 @@
+/*General color*/
+$colors: (
+  primary: #2222b6
+);
+
+$breakpoints: (
+  m-xs: 575px,
+  xs: 576px,
+  m-sm: 767px,
+  sm: 768px,
+  m-md: 991px,
+  md: 992px,
+  m-lg: 1199px,
+  lg: 1200px
+) !default;

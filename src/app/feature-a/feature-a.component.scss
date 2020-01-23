@@ -1,0 +1,5 @@
+@import 'core';
+
+p {
+  color: map-get($map: $colors, $key: primary);
+}

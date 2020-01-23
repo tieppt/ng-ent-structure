@@ -1,0 +1,61 @@
+/**
+ * Strip units
+ * =================================
+ * Remove the unit of a measurement
+ *
+ * Usage:
+ * strip-units(400px)  > 400
+ */
+
+@function strip-units($val) {
+  $newVal: 0;
+  @if $val == null {
+    $newVal: 0;
+  } @else {
+    $newVal: $val;
+  }
+  @return ($newVal / ($newVal * 0 + 1));
+}
+/**
+ * px to em converter
+ * =================================
+ * Convert pixels to ems
+ *
+ * Usage:
+ * font-size : to-em(12);
+ * font-size : to-em(12, 24); // If the parent is another value say 24px
+ */
+
+@function to-em($pxval, $base: $font-size-base) {
+  @return ($pxval / $base) * 1em;
+}
+
+/**
+ * Convert a map of breakpoints to ems
+ * =================================
+ * Takes a map of breakpoints (in px) and a base-font-size
+ *
+ * Usage:
+ $breakpoints: map-to-em((
+ 	narrow : 400px,
+ 	mid    : 750px,
+ 	wide   : 1000px,
+ 	huge   : 1250px
+ ), 16);
+ */
+
+@function map-to-em($breakpoints, $base: $font-size-base) {
+  $newBreakpoints: ();
+
+  @each $name, $pxValue in $breakpoints {
+    $emValue: to-em(strip-units($pxValue), $base);
+    $newBreakpoints: map-merge(
+      $newBreakpoints,
+      (
+        $name: $emValue
+      )
+    );
+  }
+
+  @return $newBreakpoints;
+}

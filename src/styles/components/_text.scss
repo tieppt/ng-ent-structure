@@ -1,0 +1,10 @@
+.txt-color-primary {
+  color: map-get($colors, primary);
+  &:hover {
+    color: map-get($colors, primary);
+  }
+}
+
+.txt-deleted {
+  text-decoration: line-through;
+}

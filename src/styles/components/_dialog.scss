@@ -1,0 +1,20 @@
+.cdk-overlay-container {
+  z-index: 1050;
+}
+
+.flex-dialog {
+  .mat-dialog-container {
+    display: flex;
+  }
+  &.flex-column {
+    .mat-dialog-container {
+      flex-direction: column;
+    }
+  }
+}
+
+.dialog-no-padding {
+  .mat-dialog-container {
+    padding: 0;
+  }
+}
